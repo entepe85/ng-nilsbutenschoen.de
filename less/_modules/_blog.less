@@ -1,0 +1,54 @@
+// main: ../main.css.less
+
+.blog {
+    .label {
+        font-size: .66em;
+        font-weight: 300;
+        margin: 0 .66em 0 0;
+        &.label-default {
+            background-color: @blue;
+        }
+        a {
+            color: @clouds;
+            &:hover {
+                color: darken(@clouds, 5%);
+            }
+        }
+    }
+    .meta {
+        font-size: .9em;
+        font-weight: 300;
+        color: darken(@clouds, 10%);
+    }
+    .post-list,
+    .category-list {
+        font-weight: 700;
+        list-style: none;
+        margin: 2em 0;
+        padding-left: 0;
+        li {
+            margin: 1.66em 0;
+            a {
+                font-size: 2em;
+            }
+            .label > a {
+                font-size: inherit;
+            }
+        }
+    }
+}
+.post {
+    .meta {
+        .author-image {
+            border: 3px solid @blue;
+            border-radius: 50%;
+            float: right;
+            height: 64px;
+            width: 64px;
+        }
+    }
+    h1 {
+        margin-top: 0;
+        text-align: right;
+    }
+}

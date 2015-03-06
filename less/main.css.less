@@ -1,0 +1,81 @@
+// out: ../css/main.css, compress: true
+
+@import (inline) "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css";
+@import "_modules/_base";
+@import "_modules/_fonts";
+@import "_modules/_header";
+@import "_modules/_footer";
+@import "_modules/_404";
+@import "_modules/_blog";
+@import "_modules/_vita";
+@import "_modules/_googlemap";
+
+body {
+    background: @nephritis;
+    color: @clouds;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    .serif();
+}
+
+a {
+    color: @emerald;
+    &:hover {
+        text-decoration: none;
+        color: @nephritis;
+    }
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: @sans-serif;
+}
+
+blockquote {
+    font-size: 1.33em;
+    font-style: italic;
+    margin-top: 1.33em;
+    &+cite {
+        display: inline-block;
+        margin-bottom: 1.33em;
+        text-align: right;
+        width: 100%;
+        &:before {
+            content:  "— ";
+        }
+    }
+}
+.content {
+    min-height: 50vh;
+    padding: 8rem 0;
+    a {
+        color: @blue;
+        &:hover {
+            color: @lightblue;
+        }
+        &[target]:before {
+            content: '\f14c';
+            font-family: 'FontAwesome';
+            padding-right: 5px;
+        }
+    }
+}
+
+.hero-unit {
+    img {
+        border-radius: 50%;
+        border: 5px solid @blue;
+    }
+}
+
+i.fa {
+    padding-right: 5px;
+}
+
+.fa-stack {
+    color: @blue;
+    width: 100%;
+    text-align: center;
+    .fa-stack-1x {
+        color: @nephritis;
+    }
+}

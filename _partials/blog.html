@@ -1,0 +1,20 @@
+<div class="blog container fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="fa fa-stack fa-5x">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-bullhorn fa-stack-1x"></i>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <h1>Here be claptrap</h1>
+            <ul class="post-list">
+                <li ng-repeat="post in posts">
+                    <span class="meta">{{post.date}}</span><br />
+                    <a href="#/blog/posts/{{post.slug}}">{{post.title}}</a><br />
+                    <span ng-repeat="tag in post.tags" class="label label-default"><a href="#/blog/tags/{{tag}}">{{tag}}</a></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

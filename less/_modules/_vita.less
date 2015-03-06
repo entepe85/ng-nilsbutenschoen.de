@@ -1,0 +1,30 @@
+// main: ../main.css.less
+.vita {
+    .skills__entry {
+        label {
+            font-weight: 300;
+            vertical-align: top;
+            min-width: 25%;
+        }
+        .progress {
+            background-color: darken(@nephritis, 10%);
+            display: inline-block;
+            margin: .2em 0 0 0;
+            vertical-align: top;
+            width: 70%;
+            min-width: 320px;
+            .progress-bar {
+                background-color: @blue;
+            }
+            i.fa {
+                padding: .25em;
+                font-size: 1.1em;
+            }
+        }
+    }
+    a[href$=".pdf"] {
+        display: block;
+        margin-top: 1.66em;
+        text-align: right;
+    }
+}

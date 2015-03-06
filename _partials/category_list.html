@@ -1,0 +1,20 @@
+<div class="blog container fluid">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <div class="fa-stack fa-5x">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-search fa-stack-1x"></i>
+            </div>
+            <a href="#/blog"><i class="fa fa-caret-left"></i> Zurück zur Übersicht</a>
+        </div>
+        <div class="col-md-9">
+            <h1>Tagged <span class="label label-default">{{tag}}</span></h1>
+            <ul class="category-list">
+                <li ng-repeat="post in posts">
+                    <span class="meta">{{post.date}}</span><br />
+                    <a href="#/blog/posts/{{post.slug}}">{{post.title}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

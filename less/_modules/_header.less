@@ -1,0 +1,46 @@
+// main: ../main.css.less
+
+header {
+    background: url('../img/header.jpg') no-repeat;
+    background-size: cover;
+    @media screen and (min-width: 960px) {
+        background-attachment: fixed;
+        background-size: contain;
+    }
+    border-top: 5px solid @blue;
+    #logo {
+        height: auto;
+        padding: 1em;
+        width: 150px;
+        @media screen and (min-width: @gridWidth) {
+            padding: 2em 0;
+            width: 200px;
+        }
+    }
+    .navbar {
+        border-radius: 0;
+        &.navbar-inverse {
+            background: @blue;
+            border: none;
+            .navbar-nav {
+                font-family: @sans-serif;
+                font-weight: 300;
+                > li {
+                    > a {
+                        color: @clouds;
+                        .transition(all .25s);
+                        &:hover {
+                            background: @nephritis;
+                            color: darken(@clouds, 5%);
+                        }
+                    }
+                }
+                > .active {
+                    > a {
+                        background: @nephritis;
+                    }
+                }
+            }
+        }
+    }
+}

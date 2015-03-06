@@ -1,0 +1,42 @@
+[
+    {
+        "name": "HTML5",
+        "percentage": "100",
+        "icon": "fa-html5"
+    },
+    {
+        "name": "CSS3",
+        "percentage": "95",
+        "icon": "fa-css3"
+    },
+    {
+        "name": "JavaScript",
+        "percentage": "80",
+        "icon": "fa-code"
+    },
+    {
+        "name": "TYPO3 CMS",
+        "percentage": "66",
+        "icon": "fa-globe"
+    },
+    {
+        "name": "Git",
+        "percentage": "66",
+        "icon": "fa-git"
+    },
+    {
+        "name": "Adobe Creative Suite",
+        "percentage": "50",
+        "icon": "fa-pencil"
+    },
+    {
+        "name": "Cockos Reaper",
+        "percentage": "75",
+        "icon": "fa-music"
+    },
+    {
+        "name": "Live Sound",
+        "percentage": "80",
+        "icon": "fa-volume-up"
+    }
+]

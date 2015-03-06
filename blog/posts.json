@@ -1,0 +1,40 @@
+[
+    {
+        "slug": "about-my-work",
+        "title": "About my work",
+        "date": "06.03.2015",
+        "tags": [
+            "short",
+            "about"
+        ]
+    },
+    {
+        "slug": "tv-new-media",
+        "title": "Das Fernsehen und die \"neuen\" Medien",
+        "date": "01.12.2014",
+        "tags": [
+            "YMMV",
+            "short",
+            "my two cents"
+        ]
+    },
+    {
+        "slug": "ft3-open-letter",
+        "title": "TYPO3: Ein offener Brief",
+        "date": "18.11.2014",
+        "tags": [
+            "web development",
+            "typo3"
+        ]
+    },
+    {
+        "slug": "hans-im-glueck",
+        "title": "(Nicht nur) Hans im Glück",
+        "date": "25.10.2014",
+        "tags": [
+            "food",
+            "discover",
+            "my two cents"
+        ]
+    }
+]

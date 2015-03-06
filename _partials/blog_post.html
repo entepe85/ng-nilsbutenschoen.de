@@ -1,0 +1,22 @@
+<div class="blog post container fluid">
+    <div class="row">
+        <div class="col-md-9">
+            <h1>{{post.title}}</h1>
+            <article class="post__content" ng-bind-html="postHtml">
+            </article>
+        </div>
+        <div class="col-md-3 meta">
+            <img ng-src="{{post.author_image}}" class="author-image" />
+            <p>
+                {{post.date}} <br />
+                {{post.author}}
+            </p>
+            <p>
+                <span ng-repeat="tag in post.tags" class="label label-default"><a href="#/blog/tags/{{tag}}">{{tag}}</a></span>
+            </p>
+            <p>
+                <a href="#/blog"><i class="fa fa-caret-left"></i> Zurück zur Übersicht</a>
+            </p>
+        </div>
+    </div>
+</div>
