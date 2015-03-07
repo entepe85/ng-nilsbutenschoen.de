@@ -23,7 +23,7 @@ nilsApp.controller('BlogPostCtrl', ['$scope', '$routeParams', '$http', function 
 nilsApp.controller('CatListCtrl', ['$scope', '$routeParams', '$http', '$filter', function ($scope, $routeParams, $http, $filter) {
     'use strict';
     $http.get('#/blog/posts.json').success(function (data) {
-        $scope.posts = $filter('filter')(data, {tags: $routeParams.tagName});
+        $scope.catposts = $filter('filter')(data, {tags: $routeParams.tagName});
         $scope.tag = $routeParams.tagName;
     });
 }]);
