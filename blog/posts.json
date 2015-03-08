@@ -1,5 +1,14 @@
 [
     {
+        "slug": "60-fps-and-the-web",
+        "title": "60 fps und das moderne Web",
+        "date": "08.03.2015",
+        "tags": [
+            "web development",
+            "animations"
+        ]
+    },
+    {
         "slug": "about-my-work",
         "title": "About my work",
         "date": "06.03.2015",
