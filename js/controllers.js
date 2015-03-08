@@ -37,10 +37,12 @@ nilsApp.controller('PageCtrl', ['$scope', function ($scope) {
 }]);
 
 // VITA Controller
-nilsApp.controller('VitaPageCtrl', ['$scope', '$http', function ($scope, $http) {
+nilsApp.controller('VitaPageCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
     'use strict';
     $http.get('vita/skills.json').success(function (data) {
-        $scope.skills = data;
+        $scope.skills = $filter('filter')(data, {type: "skill"});
+        $scope.experience = $filter('filter')(data, {type: "experience"});
+        $scope.education = $filter('filter')(data, {type: "education"});
     });
 }]);
 

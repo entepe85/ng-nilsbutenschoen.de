@@ -2,41 +2,103 @@
     {
         "name": "HTML5",
         "percentage": "100",
-        "icon": "fa-html5"
+        "icon": "fa-html5",
+        "type": "skill"
     },
     {
         "name": "CSS3",
         "percentage": "95",
-        "icon": "fa-css3"
+        "icon": "fa-css3",
+        "type": "skill"
     },
     {
         "name": "JavaScript",
         "percentage": "80",
-        "icon": "fa-code"
+        "icon": "fa-code",
+        "type": "skill"
     },
     {
         "name": "TYPO3 CMS",
         "percentage": "66",
-        "icon": "fa-globe"
+        "icon": "fa-globe",
+        "type": "skill"
     },
     {
         "name": "Git",
         "percentage": "66",
-        "icon": "fa-git"
+        "icon": "fa-git",
+        "type": "skill"
     },
     {
         "name": "Adobe Creative Suite",
         "percentage": "50",
-        "icon": "fa-pencil"
+        "icon": "fa-pencil",
+        "type": "skill"
     },
     {
         "name": "Cockos Reaper",
         "percentage": "75",
-        "icon": "fa-music"
+        "icon": "fa-music",
+        "type": "skill"
     },
     {
         "name": "Live Sound",
         "percentage": "80",
-        "icon": "fa-volume-up"
+        "icon": "fa-volume-up",
+        "type": "skill"
+    },
+    {
+        "title": "Frontend-Webentwickler",
+        "employer": "Medienmonster GmbH",
+        "location": "Kiel",
+        "duration": "10/2013 - heute",
+        "description": "Entwicklung von Kundenwebsites mit HTML, CSS und JavaScript. TYPO3-Integration mit Hilfe des FluidTYPO3-Frameworks. Administration von Redmine und Git-Repositories. Projektmanagement.",
+        "type": "experience"
+    },
+    {
+        "title": "Webdesigner",
+        "employer": "Henrik Braune e.K.",
+        "location": "Kiel",
+        "duration": "07/2013",
+        "description": "Konzeption und Gestaltung von Websites und Facebook-Kommunikation. Umsetzung von Webanwendungen in HTML, CSS und Javascript. TYPO3-Integration.",
+        "type": "experience"
+    },
+    {
+        "title": "Webentwickler",
+        "employer": "New Communication GmbH & Co. KG",
+        "location": "Kiel",
+        "duration": "11/2012 - 06/2013",
+        "description": "Entwicklung von Kundenwebsites mit Hilfe von HTML, CSS und Javascript. Integration des Content Management Systems TYPO3.",
+        "type": "experience"
+    },
+    {
+        "title": "Wissenschaftliche Hilfskraft",
+        "employer": "Christian Albrechts Universität",
+        "location": "Kiel",
+        "duration": "10/2011 - 10/2012",
+        "description": "e-Learning, Webdesign, Animation, Video- und Audioproduktion in der Integrated School Of Ocean Sciences (ISOS) im Exzellenzcluster Ozean der Zukunft.",
+        "type": "experience"
+    },
+    {
+        "title": "Freiberuflicher Audiotechniker",
+        "employer": "",
+        "location": "Großraum Kiel",
+        "duration": "seit 2007",
+        "description": "Tätigkeit als Techniker u.a. im Kinoverein Savoy Bordesholm in Zusammenarbeit mit Künstlern wie Andrew Roachford, Lake, US Rails, Cologne Blues Club, Madison Violet, The Fog Joggers u.v.m. Darüber hinaus technische Betreuung diverser Veranstaltungen im Kieler Raum.",
+        "type": "experience"
+    },
+    {
+        "title": "Master of Arts",
+        "field": "Multimedia Production",
+        "university": "Fachhochschule Kiel",
+        "duration": "10/2011 - 07/2013",
+        "type": "education"
+    },
+    {
+        "title": "Bachelor of Arts",
+        "field": "Multimedia Production",
+        "university": "Fachhochschule Kiel",
+        "duration": "09/2008 - 07/2011",
+        "type": "education"
     }
 ]

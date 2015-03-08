@@ -10,20 +10,18 @@
             <h1>Say it with a C.V.</h1>
                 <h2 id="profil">Profil</h2>
                     <p>Kommunikativer Kreativer mit den Schwerpunkten Web und Audiotechnik. Außerdem begeisterter Musiker und ambitionierter Fotograf.</p>
+
                 <h2 id="erfahrung">Erfahrung</h2>
-                    <p><strong>Frontend-Webentwickler</strong>, <em>medienmonster GmbH, Kiel, 10/2013 - heute</em><br />
-                Entwicklung von Kundenwebsites mit HTML, CSS und JavaScript. TYPO3-Integration mit Hilfe des FluidTYPO3-Frameworks. Administration von Redmine und Git-Repositories. Projektmanagement.</p>
-                    <p><strong>Webdesigner</strong>, <em>Henrik Braune e.K., Kiel, 07/2013</em><br />
-                Konzeption und Gestaltung von Websites und Facebook-Kommunikation. Umsetzung von Webanwendungen in HTML, CSS und Javascript. TYPO3-Integration.</p>
-                    <p><strong>Webentwickler</strong>, <em>New Communication GmbH &amp; Co. KG, Kiel, 11/2012 - 06/2013</em><br />
-                Entwicklung von Kundenwebsites mit Hilfe von HTML, CSS und Javascript. Integration des Content Management Systems TYPO3.</p>
-                    <p><strong>Wissenschaftliche Hilfskraft</strong>, <em>CAU Kiel, 10/2011 - 10/2012</em><br />
-                e-Learning, Webdesign, Animation, Video- und Audioproduktion in der Integrated School Of Ocean Sciences (ISOS) im Exzellenzcluster Ozean der Zukunft.</p>
-                    <p><strong>Freiberuflicher Audiotechniker</strong>, <em>Kiel, seit 2007</em><br />
-                Tätigkeit als Techniker u.a. im Kinoverein Savoy Bordesholm in Zusammenarbeit mit Künstlern wie Andrew Roachford, Lake, US Rails, Cologne Blues Club, Madison Violet, The Fog Joggers u.v.m. Darüber hinaus technische Betreuung diverser Veranstaltungen im Kieler Raum.</p>
+                    <p ng-repeat="xp in experience">
+                        <strong>{{xp.title}}</strong> <span ng-if="xp.employer" class="label label-default"><i class="fa fa-briefcase"></i>{{xp.employer}}</span> <span class="label label-default"><i class="fa fa-map-marker"></i>{{xp.location}}</span> <span class="label label-default"><i class="fa fa-calendar"></i>{{xp.duration}}</span><br />
+                        {{xp.description}}
+                    </p>
+
                 <h2 id="bildung">Bildung</h2>
-                    <p><strong>Fachhochschule Kiel</strong>, Fachbereich Medien - Master of Arts, 10/2011 - 07/2013<br />
-                <strong>Fachhochschule Kiel</strong>, Fachbereich Medien - Bachelor of Arts, 09/2008 - 07/2011</p>
+                <p ng-repeat="edu in education">
+                    <strong>{{edu.title}}</strong> &mdash; {{edu.field}} <span class="label label-default"><i class="fa fa-map-marker"></i>{{edu.university}}</span> <span class="label label-default"><i class="fa fa-calendar"></i>{{edu.duration}}</span>
+                </p>
+
                 <h2 id="skills">Skills</h2>
                 <div ng-repeat="skill in skills" class="skills__entry">
                     <label for="progress">{{skill.name}}</label>
@@ -33,6 +31,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <p><a href="/_assets/downloads/CV_NilsButenschoen.pdf"><i class="fa fa-file-pdf-o"></i>Lebenslauf als PDF herunterladen</a></p>
         </div>
     </div>

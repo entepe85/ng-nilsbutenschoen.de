@@ -9,6 +9,7 @@
 @import "_modules/_blog";
 @import "_modules/_vita";
 @import "_modules/_googlemap";
+@import "_modules/_animations";
 
 body {
     background: @nephritis;
@@ -20,6 +21,7 @@ body {
 
 a {
     color: @emerald;
+    outline: none !important;
     &:hover {
         text-decoration: none;
         color: @nephritis;
@@ -57,6 +59,10 @@ blockquote {
             font-family: 'FontAwesome';
             padding-right: 5px;
         }
+    }
+    .label-default {
+        background-color: @blue;
+        color: @clouds;
     }
 }
 
