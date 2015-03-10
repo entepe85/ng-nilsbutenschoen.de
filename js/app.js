@@ -4,7 +4,8 @@ var nilsApp = angular.module('nilsApp', [
     'ngRoute',
     'ngSanitize',
     'ngAnimate',
-    'uiGmapgoogle-maps'
+    'uiGmapgoogle-maps',
+    'viewhead'
 ]);
 
 /**
