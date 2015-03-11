@@ -5,7 +5,8 @@ var nilsApp = angular.module('nilsApp', [
     'ngSanitize',
     'ngAnimate',
     'uiGmapgoogle-maps',
-    'viewhead'
+    'viewhead',
+    'nilsServices'
 ]);
 
 /**
@@ -24,6 +25,6 @@ nilsApp.config(['$routeProvider', function ($routeProvider) {
         .when("/blog", {templateUrl: "partials/blog.html", controller: "BlogCtrl"})
         .when("/blog/posts/:postSlug", {templateUrl: "partials/blog_post.html", controller: "BlogPostCtrl"})
         .when("/blog/tags/:tagName", {templateUrl: "partials/category_list.html", controller: "CatListCtrl"})
-    // else redirect to Home
+    // else redirect to 404 page
         .otherwise({templateUrl: "partials/404.html", controller: "PageCtrl"});
 }]);

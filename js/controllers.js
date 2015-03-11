@@ -3,29 +3,25 @@
 /**
 * Controls the Blog
 */
-nilsApp.controller('BlogCtrl', ['$scope', '$http', function ($scope, $http) {
+nilsApp.controller('BlogCtrl', ['$scope', 'Blog', function ($scope, Blog) {
     'use strict';
-    $http.get('blog/posts.json').success(function (data) {
-        $scope.posts = data;
-    });
+    $scope.posts = Blog.query();
 }]);
 
-nilsApp.controller('BlogPostCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
+nilsApp.controller('BlogPostCtrl', ['$scope', '$routeParams', '$http', 'Post', function ($scope, $routeParams, $http, Post) {
     'use strict';
-    $http.get('blog/posts/' + $routeParams.postSlug + '.json').success(function (data) {
-        $scope.post = data;
-    });
+    $scope.post = Post.meta({postSlug: $routeParams.postSlug});
     $http.get('blog/posts/' + $routeParams.postSlug + '.html').success(function (data) {
         $scope.postHtml = data;
     });
 }]);
 
-nilsApp.controller('CatListCtrl', ['$scope', '$routeParams', '$http', '$filter', function ($scope, $routeParams, $http, $filter) {
+nilsApp.controller('CatListCtrl', ['$scope', '$routeParams', 'CatList', '$filter', function ($scope, $routeParams, CatList, $filter) {
     'use strict';
-    $http.get('blog/posts.json').success(function (data) {
+    CatList.list(function (data) {
         $scope.catposts = $filter('filter')(data, {tags: $routeParams.tagName});
-        $scope.tag = $routeParams.tagName;
     });
+    $scope.tag = $routeParams.tagName;
 }]);
 
 /**
@@ -37,9 +33,9 @@ nilsApp.controller('PageCtrl', ['$scope', function ($scope) {
 }]);
 
 // VITA Controller
-nilsApp.controller('VitaPageCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
+nilsApp.controller('VitaPageCtrl', ['$scope', '$filter', 'Vita', function ($scope, $filter, Vita) {
     'use strict';
-    $http.get('vita/skills.json').success(function (data) {
+    Vita.query(function (data) {
         $scope.skills = $filter('filter')(data, {type: "skill"});
         $scope.experience = $filter('filter')(data, {type: "experience"});
         $scope.education = $filter('filter')(data, {type: "education"});
