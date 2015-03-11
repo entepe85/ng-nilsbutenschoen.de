@@ -4,15 +4,8 @@ var nilsServices = angular.module('nilsServices', ['ngResource']);
 nilsServices.factory('Blog', ['$resource',
     function ($resource) {
         'use strict';
-        return $resource('blog/posts.json', {}, {});
-    }]);
-
-nilsServices.factory('Post', ['$resource',
-    function ($resource) {
-        'use strict';
-        return $resource('blog/posts/:postSlug.:format', {}, {
-            meta: {method: 'GET', params: {format: 'json'}},
-            content: {method: 'GET', params: {format: 'html'}}
+        return $resource('blog/:postSlug.json', {}, {
+            query: {method: 'GET', params: {postSlug: 'posts'}, isArray: true}
         });
     }]);
 
