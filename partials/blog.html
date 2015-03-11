@@ -7,9 +7,14 @@
             </div>
         </div>
         <div class="col-md-9">
+            <div class="text-right">
+                <form class="blog-search" action="#" method="GET">
+                    <input class="blog-search__field" id="blogsearch" ng-model="query" placeholder="Posts durchsuchen..." />
+                </form>
+            </div>
             <h1>Here be claptrap</h1>
             <ul class="post-list">
-                <li ng-repeat="post in posts">
+                <li ng-repeat="post in posts | filter: query">
                     <span class="meta">{{post.date}}</span><br />
                     <a href="#/blog/posts/{{post.slug}}">{{post.title}}</a><br />
                     <span ng-repeat="tag in post.tags" class="label label-default"><a href="#/blog/tags/{{tag}}">{{tag}}</a></span>
