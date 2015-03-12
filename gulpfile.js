@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
+    imagemin = require('gulp-imagemin'),
     del = require('del'),
     ngAnnotate = require('gulp-ng-annotate');
 
@@ -35,6 +36,16 @@ gulp.task('scripts', function () {
         .pipe(uglify())
         .pipe(gulp.dest('dist/js'))
         .pipe(notify({ message: 'Scripts task complete' }));
+});
+
+gulp.task('images', function () {
+    'use strict';
+    return gulp.src([
+        'img/*',
+        'assets/img/*'
+    ])
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/images'));
 });
 
 gulp.task('default', function () {
