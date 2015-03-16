@@ -1,7 +1,7 @@
 {
     "title": "TYPO3: Ein offener Brief",
     "author": "Nils Butenschön",
-    "author_image": "../../assets/img/nils-256px-square.jpg",
+    "author_image": "/dist/images/nils-256px-square.jpg",
     "date": "18.11.2014",
     "tags": [
         "web development",
