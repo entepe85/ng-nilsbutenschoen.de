@@ -41,8 +41,8 @@ gulp.task('scripts', function () {
 gulp.task('images', function () {
     'use strict';
     return gulp.src([
-        'img/*',
-        'assets/img/*'
+        '_src/img/*',
+        '_src/assets/img/*'
     ])
         .pipe(imagemin())
         .pipe(gulp.dest('dist/images'));
