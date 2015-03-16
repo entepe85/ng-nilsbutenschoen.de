@@ -48,6 +48,11 @@ gulp.task('images', function () {
         .pipe(gulp.dest('dist/images'));
 });
 
+gulp.task('watch', function () {
+    'use strict';
+    gulp.watch('_src/js/*.js', ['scripts']);
+});
+
 gulp.task('default', function () {
     'use strict';
     gulp.start('vendor-scripts', 'ng-scripts', 'scripts');
