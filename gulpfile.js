@@ -6,7 +6,9 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     imagemin = require('gulp-imagemin'),
     del = require('del'),
-    ngAnnotate = require('gulp-ng-annotate');
+    ngAnnotate = require('gulp-ng-annotate'),
+    cache = require('gulp-cache'),
+    pngquant = require('imagemin-pngquant');
 
 gulp.task('vendor-scripts', function () {
     'use strict';
@@ -44,7 +46,12 @@ gulp.task('images', function () {
         '_src/img/*',
         '_src/assets/img/*'
     ])
-        .pipe(imagemin())
+        .pipe(cache(imagemin({
+            use: [pngquant()],
+            optimizationLevel: 5,
+            progressive: true,
+            interlaced: true
+        })))
         .pipe(gulp.dest('dist/images'));
 });
 
@@ -53,7 +60,12 @@ gulp.task('watch', function () {
     gulp.watch('_src/js/*.js', ['scripts']);
 });
 
-gulp.task('default', function () {
+gulp.task('clean', function (cb) {
     'use strict';
-    gulp.start('vendor-scripts', 'ng-scripts', 'scripts');
+    del(['dist/images', 'dist/js'], cb);
+});
+
+gulp.task('default', ['clean'], function () {
+    'use strict';
+    gulp.start('vendor-scripts', 'ng-scripts', 'scripts', 'images');
 });

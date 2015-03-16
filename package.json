@@ -1,17 +1,19 @@
 {
-    "name": "nilsbutenschoen.de-angular",
-    "version": "0.8.0",
-    "description": "My blog as an Angular App",
-    "author": "Nils Butenschön",
-    "devDependencies": {
-        "del": "^1.1.1",
-        "gulp": "^3.8.11",
-        "gulp-concat": "^2.5.2",
-        "gulp-imagemin": "^2.2.1",
-        "gulp-ng-annotate": "^0.5.2",
-        "gulp-notify": "^2.2.0",
-        "gulp-rename": "^1.2.0",
-        "gulp-uglify": "^1.1.0"
-    },
-    "repository": "git@github.com:entepe85/ng-nilsbutenschoen.de.git"
+  "name": "nilsbutenschoen.de-angular",
+  "version": "0.8.0",
+  "description": "My blog as an Angular App",
+  "author": "Nils Butenschön",
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-cache": "^0.2.8",
+    "gulp-concat": "^2.5.2",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-ng-annotate": "^0.5.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.1.0",
+    "imagemin-pngquant": "^4.0.0"
+  },
+  "repository": "git@github.com:entepe85/ng-nilsbutenschoen.de.git"
 }
