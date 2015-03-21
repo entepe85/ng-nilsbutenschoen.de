@@ -8,7 +8,9 @@ var gulp = require('gulp'),
     del = require('del'),
     ngAnnotate = require('gulp-ng-annotate'),
     cache = require('gulp-cache'),
-    pngquant = require('imagemin-pngquant');
+    pngquant = require('imagemin-pngquant'),
+    less = require('gulp-less'),
+    minifyCSS = require('gulp-minify-css');
 
 gulp.task('vendor-scripts', function () {
     'use strict';
@@ -55,17 +57,27 @@ gulp.task('images', function () {
         .pipe(gulp.dest('dist/images'));
 });
 
+gulp.task('less', function () {
+    'use strict';
+    return gulp.src('_src/less/main.less')
+        .pipe(less())
+        .pipe(minifyCSS())
+        .pipe(gulp.dest('dist/css'))
+        .pipe(notify({ message: 'LESS compiled & minified, sir!'}));
+});
+
 gulp.task('watch', function () {
     'use strict';
     gulp.watch('_src/js/*.js', ['scripts']);
+    gulp.watch(['_src/less/**/*.less', '_src/less/main.less'], ['less']);
 });
 
 gulp.task('clean', function (cb) {
     'use strict';
-    del(['dist/images', 'dist/js'], cb);
+    del(['dist/images', 'dist/js', 'dist/css'], cb);
 });
 
 gulp.task('default', ['clean'], function () {
     'use strict';
-    gulp.start('vendor-scripts', 'ng-scripts', 'scripts', 'images');
+    gulp.start('vendor-scripts', 'ng-scripts', 'scripts', 'images', 'less');
 });
