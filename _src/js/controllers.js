@@ -8,9 +8,10 @@ nilsApp.controller('BlogCtrl', ['$scope', 'Blog', function ($scope, Blog) {
     $scope.posts = Blog.query();
 }]);
 
-nilsApp.controller('BlogPostCtrl', ['$scope', '$routeParams', '$http', 'Blog', function ($scope, $routeParams, $http, Blog) {
+nilsApp.controller('BlogPostCtrl', ['$scope', '$routeParams', '$http', '$location', 'Blog', function ($scope, $routeParams, $http, $location, Blog) {
     'use strict';
     $scope.post = Blog.get({postSlug: $routeParams.postSlug});
+    $scope.postUrl = $location.absUrl();
     $http.get('blog/html/' + $routeParams.postSlug + '.html').success(function (data) {
         $scope.postHtml = data;
     });
