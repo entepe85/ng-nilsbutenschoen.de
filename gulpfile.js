@@ -1,4 +1,4 @@
-/*global require */
+/*global require, console */
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     pngquant = require('imagemin-pngquant'),
     less = require('gulp-less'),
-    minifyCSS = require('gulp-minify-css');
+    minifyCSS = require('gulp-minify-css'),
+    combiner = require('stream-combiner2');
 
 gulp.task('vendor-scripts', function () {
     'use strict';
@@ -59,11 +60,14 @@ gulp.task('images', function () {
 
 gulp.task('less', function () {
     'use strict';
-    return gulp.src('_src/less/main.less')
-        .pipe(less())
-        .pipe(minifyCSS())
-        .pipe(gulp.dest('dist/css'))
-        .pipe(notify({ message: 'LESS compiled & minified, sir!'}));
+    var combined = combiner.obj([
+        gulp.src('_src/less/main.less'),
+        less(),
+        minifyCSS(),
+        gulp.dest('dist/css'),
+        notify({ message: 'LESS compiled & minified, sir!'})
+    ]);
+    combined.on('error', console.error.bind(console));
 });
 
 gulp.task('watch', function () {
