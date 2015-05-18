@@ -1,6 +1,5 @@
-// out: ../../dist/css/main.css, compress: true
-
 @import (inline) "../css/bootstrap.min.css";
+@import (inline) "../css/loading-bar.css";
 @import "modules/base.less";
 @import "modules/header.less";
 @import "modules/footer.less";
@@ -45,6 +44,17 @@ blockquote {
         }
     }
 }
+
+#loading-bar {
+    .bar {
+        background: @nephritis;
+        height: 5px;
+    }
+    .peg {
+        .box-shadow(@nephritis 1px 0 6px 1px);
+    }
+}
+
 .content {
     min-height: 50vh;
     padding: 8rem 0;

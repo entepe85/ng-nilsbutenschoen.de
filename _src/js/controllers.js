@@ -47,7 +47,7 @@ nilsApp.controller('VitaPageCtrl', ['$scope', '$filter', 'Vita', function ($scop
 /**
 * Navigation controller
 */
-nilsApp.controller('NavCtrl', ['$scope', '$location', function ($scope, $location) {
+nilsApp.controller('NavCtrl', ['$scope', '$location', 'cfpLoadingBar', function ($scope, $location, cfpLoadingBar) {
     'use strict';
     $scope.items = [
         { path: '/music', title: 'Musik' },
@@ -61,4 +61,10 @@ nilsApp.controller('NavCtrl', ['$scope', '$location', function ($scope, $locatio
         }
         return false;
     };
+    $scope.$on('$routeChangeStart', function () {
+        cfpLoadingBar.start();
+    });
+    $scope.$on('$routeChangeSuccess', function () {
+        cfpLoadingBar.complete();
+    });
 }]);

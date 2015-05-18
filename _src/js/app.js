@@ -6,7 +6,8 @@ var nilsApp = angular.module('nilsApp', [
     'ngAnimate',
     'uiGmapgoogle-maps',
     'viewhead',
-    'nilsServices'
+    'nilsServices',
+    'angular-loading-bar'
 ]);
 
 /**
