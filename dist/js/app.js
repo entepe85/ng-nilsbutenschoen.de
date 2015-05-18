@@ -11,7 +11,11 @@ var nilsApp = angular.module('nilsApp', [
     'viewhead',
     'nilsServices',
     'angular-loading-bar'
-]);
+])
+    .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
+        'use strict';
+        cfpLoadingBarProvider.includeSpinner = false;
+    }]);
 
 /**
 * Configure the Routes
