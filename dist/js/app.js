@@ -41,7 +41,7 @@ nilsApp.config(['$routeProvider', function ($routeProvider) {
 
 // Global controller
 
-nilsApp.controller('nilsCtrl', ['$scope', function ($scope) {
+nilsApp.controller('nilsCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
     'use strict';
     $scope.openNav = function () {
         angular.element('#sidebar').addClass('open');
@@ -49,6 +49,13 @@ nilsApp.controller('nilsCtrl', ['$scope', function ($scope) {
     $scope.closeNav = function () {
         angular.element('#sidebar').removeClass('open');
     };
+    $scope.$on('$routeChangeSuccess', function () {
+        $timeout(function () {
+            if (angular.element('#sidebar').hasClass('open')) {
+                angular.element('#sidebar').removeClass('open');
+            }
+        }, 250);
+    });
 }]);
 
 /**
