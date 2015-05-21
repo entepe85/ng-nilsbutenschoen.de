@@ -42,6 +42,12 @@
         "type": "skill"
     },
     {
+        "name": "Ardour",
+        "percentage": "66",
+        "icon": "fa-music",
+        "type": "skill"
+    },
+    {
         "name": "Live Sound",
         "percentage": "80",
         "icon": "fa-volume-up",
