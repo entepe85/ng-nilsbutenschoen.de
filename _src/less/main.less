@@ -1,7 +1,8 @@
-@import (inline) "../css/bootstrap.min.css";
 @import (inline) "../css/loading-bar.css";
+@import "modules/normalize.less";
 @import "modules/base.less";
 @import "modules/header.less";
+@import "modules/navigation.less";
 @import "modules/footer.less";
 @import "modules/404.less";
 @import "modules/blog.less";
@@ -10,8 +11,8 @@
 @import "modules/animations.less";
 
 body {
-    background: @nephritis;
-    color: @clouds;
+    background: @clouds;
+    color: @asbestos;
     overflow-x: hidden;
     overflow-y: scroll;
     .serif();
@@ -20,14 +21,32 @@ body {
 a {
     color: @emerald;
     outline: none !important;
+    text-decoration: none;
     &:hover {
         text-decoration: none;
         color: @nephritis;
     }
 }
 
+p {
+    line-height: 1.33;
+}
+
+.label {
+    border-radius: 3px;
+    color: @clouds;
+    font-size: .66em;
+    padding: 5px;
+}
+
 h1,h2,h3,h4,h5,h6 {
+    color: @belizehole;
     font-family: @sans-serif;
+    font-weight: 300;
+}
+
+h1.intro {
+    font-size: 5rem;
 }
 
 blockquote {
@@ -47,21 +66,25 @@ blockquote {
 
 #loading-bar {
     .bar {
-        background: @nephritis;
+        background: @belizehole;
         height: 5px;
     }
     .peg {
-        .box-shadow(@nephritis 1px 0 6px 1px);
+        .box-shadow(@belizehole 1px 0 6px 1px);
     }
+}
+
+#wrapper {
+    padding-left: 15em;
 }
 
 .content {
     min-height: 50vh;
-    padding: 8rem 0;
+    padding: 3em;
     a {
-        color: @blue;
+        color: @belizehole;
         &:hover {
-            color: @lightblue;
+            color: @peterriver;
         }
         &[target]:before {
             content: '\f14c';
@@ -70,9 +93,15 @@ blockquote {
         }
     }
     .label-default {
-        background-color: @blue;
+        background-color: @belizehole;
         color: @clouds;
     }
+}
+
+.row {
+    clear: both;
+    display: block;
+    width: 100%;
 }
 
 .hero-unit {
@@ -103,4 +132,21 @@ i.fa {
     margin: .13em .1em 0 0;
     line-height: .67em;
     font-weight: 100;
+}
+
+img.intext {
+    border: 10px solid white;
+    box-shadow: 0 0 5px rgba(10,10,10,.33);
+    &.right,
+    &.left {
+        border-bottom: 30px solid white;
+    }
+    &.right {
+        float: right;
+        margin: 0 0 1em 1em;
+    }
+    &.left {
+        float: left;
+        margin: 0 1em 1em 0;
+    }
 }

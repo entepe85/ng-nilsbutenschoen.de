@@ -1,39 +1,31 @@
 <div class="vita container fluid">
     <view-title>C.V.</view-title>
     <div class="row">
-        <div class="col-md-3">
-            <div class="fa fa-stack fa-5x">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-briefcase fa-stack-1x"></i>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <h1>Say it with a C.V.</h1>
-                <h2 id="profil">Profil</h2>
-                    <p>Kommunikativer Kreativer mit den Schwerpunkten Web und Audiotechnik. Außerdem begeisterter Musiker und ambitionierter Fotograf.</p>
+        <h1 class="intro">Say it with a C.V.</h1>
+            <h2 id="profil">Profil</h2>
+                <p>Kommunikativer Kreativer mit den Schwerpunkten Web und Audiotechnik. Außerdem begeisterter Musiker und ambitionierter Fotograf.</p>
 
-                <h2 id="erfahrung">Erfahrung</h2>
-                    <p ng-repeat="xp in experience">
-                        <strong>{{xp.title}}</strong> <span ng-if="xp.employer" class="label label-success"><i class="fa fa-briefcase"></i>{{xp.employer}}</span> <span class="label label-success"><i class="fa fa-map-marker"></i>{{xp.location}}</span> <span class="label label-success"><i class="fa fa-calendar"></i>{{xp.duration}}</span><br />
-                        {{xp.description}}
-                    </p>
-
-                <h2 id="bildung">Bildung</h2>
-                <p ng-repeat="edu in education">
-                    <strong>{{edu.title}}</strong> &mdash; {{edu.field}} <span class="label label-success"><i class="fa fa-map-marker"></i>{{edu.university}}</span> <span class="label label-success"><i class="fa fa-calendar"></i>{{edu.duration}}</span>
+            <h2 id="erfahrung">Erfahrung</h2>
+                <p ng-repeat="xp in experience">
+                    <strong>{{xp.title}}</strong> <span ng-if="xp.employer" class="label label-success"><i class="fa fa-briefcase"></i>{{xp.employer}}</span> <span class="label label-success"><i class="fa fa-map-marker"></i>{{xp.location}}</span> <span class="label label-success"><i class="fa fa-calendar"></i>{{xp.duration}}</span><br />
+                    {{xp.description}}
                 </p>
 
-                <h2 id="skills">Skills</h2>
-                <div ng-repeat="skill in skills" class="skills__entry">
-                    <label for="progress">{{skill.name}}</label>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{skill.percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{skill.percentage}}%">
-                            <i class="fa {{skill.icon}}"></i>
-                        </div>
+            <h2 id="bildung">Bildung</h2>
+            <p ng-repeat="edu in education">
+                <strong>{{edu.title}}</strong> &mdash; {{edu.field}} <span class="label label-success"><i class="fa fa-map-marker"></i>{{edu.university}}</span> <span class="label label-success"><i class="fa fa-calendar"></i>{{edu.duration}}</span>
+            </p>
+
+            <h2 id="skills">Skills</h2>
+            <div ng-repeat="skill in skills" class="skills__entry">
+                <label for="progress">{{skill.name}}</label>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{skill.percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{skill.percentage}}%">
+                        <i class="fa {{skill.icon}}"></i>
                     </div>
                 </div>
+            </div>
 
-                <p><a href="/dist/downloads/CV_NilsButenschoen.pdf"><i class="fa fa-file-pdf-o"></i>Lebenslauf als PDF herunterladen</a></p>
-        </div>
+            <p><a href="/dist/downloads/CV_NilsButenschoen.pdf"><i class="fa fa-file-pdf-o"></i>Lebenslauf als PDF herunterladen</a></p>
     </div>
 </div>

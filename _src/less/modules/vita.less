@@ -1,28 +1,36 @@
-// main: ../main.css.less
 .vita {
     .label-success {
-        background-color: @emerald;
+        background-color: @peterriver;
         line-height: 2.66em;
     }
     .skills__entry {
+        margin: .25em 0;
         label {
+            display: inline-block;
             font-weight: 300;
-            vertical-align: top;
+            vertical-align: middle;
             min-width: 25%;
         }
         .progress {
-            background-color: darken(@nephritis, 10%);
+            background-color: darken(@belizehole, 10%);
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px rgba(50,50,50,.33);
             display: inline-block;
             margin: .2em 0 0 0;
+            min-width: 320px;
+            text-align: center;
             vertical-align: top;
             width: 70%;
-            min-width: 320px;
             .progress-bar {
-                background-color: @blue;
+                background: repeating-linear-gradient(45deg,#5faee3,#5faee3 2%,#3498db 2%,#3498db 4%);
+                background-size: contain;
+                background-attachment: fixed;
+                border-radius: 5px;
             }
             i.fa {
-                padding: .25em;
+                color: @clouds;
                 font-size: 1.1em;
+                padding: .25em;
             }
         }
     }

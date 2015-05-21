@@ -3,7 +3,7 @@
         <title ng-bind-template="{{viewTitle}} - Nils Butenschön">Nils Butenschön</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab:300,400,700,400italic">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic">
         <link rel="stylesheet" href="dist/css/main.css" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -14,12 +14,14 @@
         <meta name="google-site-verification" content="s4ENPjL94zsk9Xakg00fwbPDi6w5YUxoMcYujTNUHB8" />
     </head>
     <body>
-        <header ng-include='"includes/header.html"'>
-        </header>
-        <section ng-view class="content">
-        </section>
-        <footer ng-include='"includes/footer.html"'>
-        </footer>
+        <div ng-include='"includes/sidenav.html"'>
+        </div>
+        <div id="wrapper">
+            <header ng-include='"includes/header.html"'>
+            </header>
+            <section ng-view class="content">
+            </section>
+        </div>
         <script src="dist/js/vendors.all.min.js"></script>
         <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
         <script src="dist/js/angular.all.js"></script>

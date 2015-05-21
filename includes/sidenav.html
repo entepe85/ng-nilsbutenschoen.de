@@ -1,0 +1,16 @@
+<nav>
+    <img class="hero-unit" src="dist/images/nils-256px-square.jpg" alt="Bild von Nils">
+    <ul class="nav nav-mainnav" ng-controller="NavCtrl">
+        <li ng-repeat="item in items" ng-class="{active: isActive(item)}">
+            <a href="#{{item.path}}">{{item.title}}</a>
+        </li>
+    </ul>
+    <ul class="nav nav-social">
+        <li><a href="https://facebook.com/nils.butenschoen" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+        <li><a href="https://twitter.com/NilssonT" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/+NilsTorbjörnPetersen/posts" target="_blank"><i class="fa fa-google-plus-square"></i></a></li>
+        <li><a href="https://secure.flickr.com/photos/nilser/" target="_blank"><i class="fa fa-flickr"></i></a></li>
+        <li><a href="https://bitbucket.org/entepe/" target="_blank"><i class="fa fa-bitbucket-square"></i></a></li>
+        <li><a href="https://github.com/entepe85" target="_blank"><i class="fa fa-github-square"></i></a></li>
+    </ul>
+</nav>

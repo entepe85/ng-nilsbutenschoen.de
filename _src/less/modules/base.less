@@ -1,8 +1,8 @@
-// main: ../main.css.less
+// main: ../main.less
 
 // MIXINS AND CONSTANTS GO HERE
 
-@gridWidth: 768px;
+@gridWidth: 960px;
 
 @blue: #2C3E50;
 @lightblue: #34495E;
@@ -19,19 +19,20 @@
 @peterriver: #3498db;
 @belizehole: #2980b9;
 @alizarin: #e74c3c;
+@asbestos: #7F8C8D;
 
-@sans-serif: 'Montserrat', Helvetica, Tahoma, sans-serif;
-@serif: 'Roboto Slab', Georgia, Times, serif;
+@sans-serif: 'Lato', Helvetica, Tahoma, sans-serif;
+@serif: 'Lato', Helvetica, Tahoma, sans-serif;
 
 .serif() {
-    font-family: 'Roboto Slab', Georgia, Times, serif;
-    font-weight: 300;
-    font-size: 18px;
+    font-family: @serif;
+    font-weight: 400;
+    font-size: 21px;
 }
 .sans() {
-    font-family: 'Montserrat', Helvetica, Verdana, Tahoma, sans-serif;
+    font-family: @sans-serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 21px;
 }
 
 .box-shadow(@param) {
