@@ -1,6 +1,17 @@
-// main: ../main.css.less
+.contact-wrap {
+    .flexbox();
+    .flexdir(column);
+    @media (min-width: @gridWidth) {
+        .flexdir(row);
+    }
+    > div {
+        .flex(1 0 auto);
+    }
+}
 
 .angular-google-map {
+    min-width: 400px;
+    width: 100%;
     .angular-google-map-container {
         min-height: 400px;
     }

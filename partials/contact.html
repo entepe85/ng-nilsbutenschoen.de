@@ -1,31 +1,27 @@
 <div class="contact container fluid">
     <view-title>Don't be shy</view-title>
     <div class="row">
-        <div class="col-md-3">
-            <div class="fa-stack fa-5x">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-compass fa-stack-1x"></i>
+        <h1 class="intro">Don't be shy</h1>
+        <div class="contact-wrap">
+            <div class="info-wrap">
+                <h2>Nils Butenschön, M.A.</h2>
+                <p>
+                    Multimedia Production
+                </p>
+                <p>
+                    Dieselweg 2<br />
+                    24159 Kiel
+                </p>
+                <p>
+                    <a href="mailto:moin@nilsbutenschoen.de"><i class="fa fa-envelope"></i>moin@nilsbutenschoen.de</a>
+                </p>
             </div>
-        </div>
-        <div class="col-md-4">
-            <h1>Don't be shy</h1>
-            <h2>Nils Butenschön, M.A.</h2>
-            <p>
-                Multimedia Production
-            </p>
-            <p>
-                Dieselweg 2<br />
-                24159 Kiel
-            </p>
-            <p>
-                <a href="mailto:moin@nilsbutenschoen.de"><i class="fa fa-envelope"></i>moin@nilsbutenschoen.de</a>
-            </p>
-        </div>
-        <div class="col-md-5">
-            <ui-gmap-google-map center='map.center' zoom='map.zoom' options='{disableDefaultUI: true, draggable: false, scrollwheel: false}'>
-                <ui-gmap-marker coords="map.center" idkey="0">
-                </ui-gmap-marker>
-            </ui-gmap-google-map>
+            <div class="map-wrap">
+                <ui-gmap-google-map center='map.center' zoom='map.zoom' options='{disableDefaultUI: true, draggable: false, scrollwheel: false}'>
+                    <ui-gmap-marker coords="map.center" idkey="0">
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
         </div>
     </div>
 </div>

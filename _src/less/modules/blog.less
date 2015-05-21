@@ -1,4 +1,8 @@
 .blog {
+    .search-form {
+        text-align: right;
+        width: 100%;
+    }
     .blog-search {
         color: @belizehole;
         .blog-search__field {
@@ -16,6 +20,9 @@
         &.label-default {
             background-color: @belizehole;
         }
+        &:last-child {
+            margin-right: 0;
+        }
         a {
             color: @clouds;
             &:hover {
@@ -30,7 +37,7 @@
     }
     .post-list,
     .category-list {
-        font-weight: 700;
+        font-weight: 300;
         list-style: none;
         margin: 2em 0;
         padding-left: 0;
@@ -38,25 +45,38 @@
             margin: 1.66em 0;
             a {
                 font-size: 2em;
+                line-height: 1.33;
             }
-            .label > a {
-                font-size: inherit;
+            .label {
+                margin-top: .33em;
+                > a {
+                    font-size: inherit;
+                }
             }
         }
     }
 }
 .post {
-    .meta {
-        .author-image {
-            border: 3px solid @belizehole;
-            border-radius: 50%;
-            float: right;
-            height: 64px;
-            width: 64px;
+    > .row {
+        .meta {
+            float: none;
+            width: 100%;
+            margin-bottom: 1.33em;
+            @media (min-width: @gridWidth) {
+                float: right;
+                margin: 0 0 1.33em 2em;
+                width: 240px;
+            }
+            .author-image {
+                border: 3px solid @belizehole;
+                border-radius: 50%;
+                float: right;
+                height: 64px;
+                width: 64px;
+            }
         }
-    }
-    h1 {
-        margin-top: 0;
-        text-align: right;
+        h1 {
+            margin-top: 0;
+        }
     }
 }
