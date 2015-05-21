@@ -1,4 +1,5 @@
-<nav>
+<nav id="sidebar">
+    <div id="close-nav" ng-click="closeNav()"><i class="fa fa-close"></i></div>
     <img class="hero-unit" src="dist/images/nils-256px-square.jpg" alt="Bild von Nils">
     <ul class="nav nav-mainnav" ng-controller="NavCtrl">
         <li ng-repeat="item in items" ng-class="{active: isActive(item)}">

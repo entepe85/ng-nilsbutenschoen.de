@@ -39,6 +39,18 @@ nilsApp.config(['$routeProvider', function ($routeProvider) {
 
 /*global angular, nilsApp, console */
 
+// Global controller
+
+nilsApp.controller('nilsCtrl', ['$scope', function ($scope) {
+    'use strict';
+    $scope.openNav = function () {
+        angular.element('#sidebar').addClass('open');
+    };
+    $scope.closeNav = function () {
+        angular.element('#sidebar').removeClass('open');
+    };
+}]);
+
 /**
 * Controls the Blog
 */

@@ -1,14 +1,41 @@
+#open-nav {
+    color: @clouds;
+    left: 20px;
+    position: absolute;
+    top: 10px;
+    @media (min-width: @gridWidth) {
+        display: none;
+    }
+}
+#close-nav {
+    float: right;
+    margin-right: 1em;
+    margin-top: -2em;
+    @media (min-width: @gridWidth) {
+        display: none;
+    }
+}
+
 nav {
     background: @belizehole;
     color: @clouds;
+    overflow: scroll;
     padding: 3em 0;
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     text-align: center;
+    .transition(transform .5s ease);
     width: 15em;
     z-index: 1000;
+    .transform(translateX(-100%));
+    @media (min-width: @gridWidth) {
+        .transform(translateX(0%));
+    }
+    &.open {
+        .transform(translateX(0%));
+    }
     .hero-unit {
         border-radius: 50%;
         height: 150px;
