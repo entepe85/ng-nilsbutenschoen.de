@@ -37,7 +37,7 @@ nilsApp.config(['$routeProvider', function ($routeProvider) {
         .otherwise({templateUrl: "partials/404.html", controller: "PageCtrl"});
 }]);
 
-/*global angular, nilsApp, console */
+/*global angular, nilsApp, console, window, document */
 
 // Global controller
 
@@ -66,12 +66,18 @@ nilsApp.controller('BlogCtrl', ['$scope', 'Blog', function ($scope, Blog) {
     $scope.posts = Blog.query();
 }]);
 
-nilsApp.controller('BlogPostCtrl', ['$scope', '$routeParams', '$http', '$location', 'Blog', function ($scope, $routeParams, $http, $location, Blog) {
+nilsApp.controller('BlogPostCtrl', ['$scope', '$routeParams', '$http', '$location', '$browser', 'Blog', function ($scope, $routeParams, $http, $location, $browser, Blog) {
     'use strict';
     $scope.post = Blog.get({postSlug: $routeParams.postSlug});
     $scope.postUrl = $location.absUrl();
     $http.get('blog/html/' + $routeParams.postSlug + '.html').success(function (data) {
         $scope.postHtml = data;
+    });
+    $scope.$on('$routeChangeSuccess', function () {
+        $browser.notifyWhenNoOutstandingRequests(function () {
+            var scrollTop = angular.element('section.content').offset().top;
+            angular.element('html, body').stop().animate({ scrollTop: scrollTop }, 500);
+        });
     });
 }]);
 
