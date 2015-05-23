@@ -7,13 +7,13 @@
 
             <h2 id="erfahrung">Erfahrung</h2>
                 <p ng-repeat="xp in experience">
-                    <strong>{{xp.title}}</strong> <span ng-if="xp.employer" class="label label-success"><i class="fa fa-briefcase"></i>{{xp.employer}}</span> <span class="label label-success"><i class="fa fa-map-marker"></i>{{xp.location}}</span> <span class="label label-success"><i class="fa fa-calendar"></i>{{xp.duration}}</span><br />
+                    <strong>{{xp.title}}</strong><br><span ng-if="xp.employer" class="label label-success"><i class="fa fa-briefcase"></i>{{xp.employer}}</span> <span class="label label-success"><i class="fa fa-map-marker"></i>{{xp.location}}</span> <span class="label label-success"><i class="fa fa-calendar"></i>{{xp.duration}}</span><br />
                     {{xp.description}}
                 </p>
 
             <h2 id="bildung">Bildung</h2>
             <p ng-repeat="edu in education">
-                <strong>{{edu.title}}</strong> &mdash; {{edu.field}} <span class="label label-success"><i class="fa fa-map-marker"></i>{{edu.university}}</span> <span class="label label-success"><i class="fa fa-calendar"></i>{{edu.duration}}</span>
+                <strong>{{edu.title}}</strong> &mdash; {{edu.field}}<br><span class="label label-success"><i class="fa fa-map-marker"></i>{{edu.university}}</span> <span class="label label-success"><i class="fa fa-calendar"></i>{{edu.duration}}</span>
             </p>
 
             <h2 id="skills">Skills</h2>
