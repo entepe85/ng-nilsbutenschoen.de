@@ -54,10 +54,18 @@
         "type": "skill"
     },
     {
+        "title": "Webentwickler, UX-Consultant",
+        "employer": "SOLADES | Internetagentur",
+        "location": "Kiel",
+        "duration": "06/2015 - heute",
+        "description": "Konzeption und Entwicklung von Kundenwebsites. Projektmanagement und Administrationsaufgaben.",
+        "type": "experience"
+    },
+    {
         "title": "Frontend-Webentwickler",
         "employer": "Medienmonster GmbH",
         "location": "Kiel",
-        "duration": "10/2013 - heute",
+        "duration": "10/2013 - 05/2015",
         "description": "Entwicklung von Kundenwebsites mit HTML5, CSS3 und JavaScript (jQuery, Angular). TYPO3-Integration mit Hilfe des FluidTYPO3-Frameworks. Administration von Redmine und Git-Repositories. Projektmanagement.",
         "type": "experience"
     },
