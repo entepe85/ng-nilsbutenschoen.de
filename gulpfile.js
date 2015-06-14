@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     pngquant = require('imagemin-pngquant'),
     less = require('gulp-less'),
     minifyCSS = require('gulp-minify-css'),
-    combiner = require('stream-combiner2');
+    combiner = require('stream-combiner2'),
+    livereload = require('gulp-livereload');
 
 gulp.task('vendor-scripts', function () {
     'use strict';
@@ -40,6 +41,7 @@ gulp.task('scripts', function () {
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(gulp.dest('dist/js'))
+        .pipe(livereload())
         .pipe(notify({ message: 'Scripts task complete' }));
 });
 
@@ -65,13 +67,15 @@ gulp.task('less', function () {
         less(),
         minifyCSS(),
         gulp.dest('dist/css'),
-        notify({ message: 'LESS compiled & minified, sir!'})
+        notify({ message: 'LESS compiled & minified, sir!'}),
+        livereload()
     ]);
     combined.on('error', console.error.bind(console));
 });
 
 gulp.task('watch', function () {
     'use strict';
+    livereload.listen();
     gulp.watch('_src/js/*.js', ['scripts']);
     gulp.watch(['_src/less/**/*.less', '_src/less/main.less'], ['less']);
 });
