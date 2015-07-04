@@ -24,6 +24,12 @@
         "type": "skill"
     },
     {
+        "name": "Contao CMS",
+        "percentage": "50",
+        "icon": "fa-globe",
+        "type": "skill"
+    },
+    {
         "name": "Git",
         "percentage": "75",
         "icon": "fa-git",
@@ -58,7 +64,7 @@
         "employer": "SOLADES | Internetagentur",
         "location": "Kiel",
         "duration": "06/2015 - heute",
-        "description": "Konzeption und Entwicklung von Kundenwebsites. Projektmanagement und Administrationsaufgaben.",
+        "description": "Konzeption und Entwicklung von Kundenwebsites, Umsetzung mit HTML5, CSS3, JavaScript und Integration mit Contao. Projektmanagement und Administrationsaufgaben.",
         "type": "experience"
     },
     {
