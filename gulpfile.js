@@ -18,7 +18,7 @@ var paths = {
     styles: {
         master: '_src/less/main.less',
         watch: ['_src/less/**/*.less', '_src/less/main.less'],
-        dist: 'dist/css/main.css'
+        dist: 'dist/css/'
     },
     scripts: {
         jquery: ['_src/js/vendors/jquery-2.1.3.min.js', '_src/js/vendors/jquery-libs/*.js'],
