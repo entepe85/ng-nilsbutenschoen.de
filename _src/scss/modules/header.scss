@@ -10,7 +10,7 @@ header {
         height: auto;
         padding: 2.5em 1em;
         width: 150px;
-        @media screen and (min-width: @gridWidth) {
+        @media screen and (min-width: $gridWidth) {
             padding: 5em 0;
             width: 250px;
         }
@@ -18,24 +18,24 @@ header {
     .navbar {
         border-radius: 0;
         &.navbar-inverse {
-            background: @blue;
+            background: $blue;
             border: none;
             .navbar-nav {
-                font-family: @sans-serif;
+                font-family: $sans-serif;
                 font-weight: 300;
                 > li {
                     > a {
-                        color: @clouds;
-                        .transition(all .25s);
+                        color: $clouds;
+                        @include transition(all .25s);
                         &:hover {
-                            background: @nephritis;
-                            color: darken(@clouds, 5%);
+                            background: $nephritis;
+                            color: darken($clouds, 5%);
                         }
                     }
                 }
                 > .active {
                     > a {
-                        background: @nephritis;
+                        background: $nephritis;
                     }
                 }
             }

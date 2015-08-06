@@ -20,5 +20,11 @@
     "imagemin-pngquant": "^4.0.0",
     "stream-combiner2": "^1.0.2"
   },
-  "repository": "git@github.com:entepe85/ng-nilsbutenschoen.de.git"
+  "repository": "git@github.com:entepe85/ng-nilsbutenschoen.de.git",
+  "dependencies": {
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-util": "^3.0.6"
+  }
 }

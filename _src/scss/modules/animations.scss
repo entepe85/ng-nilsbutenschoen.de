@@ -3,7 +3,7 @@
 .ng-enter,
 .ng-move,
 .ng-leave {
-    .transition(all .25s);
+    @include transition(all .25s);
 }
 
 .ng-enter,

@@ -1,10 +1,10 @@
 #open-nav {
-    color: @peterriver;
+    color: $peterriver;
     cursor: pointer;
     left: 20px;
     position: absolute;
     top: 10px;
-    @media (min-width: @gridWidth) {
+    @media (min-width: $gridWidth) {
         display: none;
     }
 }
@@ -13,14 +13,14 @@
     float: right;
     margin-right: 1em;
     margin-top: -2em;
-    @media (min-width: @gridWidth) {
+    @media (min-width: $gridWidth) {
         display: none;
     }
 }
 
 nav {
-    background: @belizehole;
-    color: @clouds;
+    background: $belizehole;
+    color: $clouds;
     overflow: scroll;
     padding: 3em 0;
     position: fixed;
@@ -28,15 +28,15 @@ nav {
     bottom: 0;
     left: 0;
     text-align: center;
-    .transition(all .5s ease);
+    @include transition(all .5s ease);
     width: 15em;
     z-index: 1000;
-    .transform(translateX(-100%));
-    @media (min-width: @gridWidth) {
-        .transform(translateX(0%));
+    @include transform(translateX(-100%));
+    @media (min-width: $gridWidth) {
+        @include transform(translateX(0%));
     }
     &.open {
-        .transform(translateX(0%));
+        @include transform(translateX(0%));
     }
     .hero-unit {
         border-radius: 50%;
@@ -49,25 +49,25 @@ nav {
         padding: 0;
         width: 100%;
         li {
-            border-top: 1px solid fadeout(@clouds, 50%);
+            border-top: 1px solid transparentize($clouds, .5);
             font-size: 1.25em;
             &:last-child {
-                border-bottom: 1px solid fadeout(@clouds, 50%);
+                border-bottom: 1px solid transparentize($clouds, .5);
             }
             a {
-                color: @clouds;
+                color: $clouds;
                 display: block;
-                padding: .67em 0;
-                .transition(all .5s);
+                padding: 0.67em 0;
+                @include transition(all .5s);
                 &:hover {
-                    background: @clouds;
-                    color: @belizehole;
+                    background: $clouds;
+                    color: $belizehole;
                 }
             }
             &.active {
                 a {
-                    background: @clouds;
-                    color: @belizehole;
+                    background: $clouds;
+                    color: $belizehole;
                 }
             }
         }
@@ -78,11 +78,11 @@ nav {
         padding: 0;
         li {
             display: inline-block;
-            margin: 0 .33em;
+            margin: 0 0.33em;
             a {
-                color: @clouds;
+                color: $clouds;
                 &:hover {
-                    color: darken(@clouds, 10%);
+                    color: darken($clouds, 10%);
                 }
             }
         }

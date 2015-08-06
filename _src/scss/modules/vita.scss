@@ -1,12 +1,12 @@
 .vita {
     .label-success {
-        background-color: @peterriver;
+        background-color: $peterriver;
         display: inline-block;
-        margin: .25em .25em .5em 0;
+        margin: 0.25em 0.25em 0.5em 0;
         vertical-align: top;
     }
     .skills__entry {
-        margin: .25em 0;
+        margin: 0.25em 0;
         label {
             display: inline-block;
             font-weight: 300;
@@ -14,25 +14,25 @@
             min-width: 25%;
         }
         .progress {
-            background-color: darken(@belizehole, 10%);
+            background-color: darken($belizehole, 10%);
             border-radius: 5px;
             box-shadow: inset 0 0 10px rgba(50,50,50,.33);
             display: inline-block;
-            margin: .2em 0 0 0;
+            margin: 0.2em 0 0 0;
             min-width: 18em;
             text-align: center;
             vertical-align: top;
             width: 70%;
             .progress-bar {
-                background-color: @belizehole;
+                background-color: $belizehole;
                 background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
                 background-size: 3em 3em;
                 border-radius: 5px;
             }
             i.fa {
-                color: @clouds;
+                color: $clouds;
                 font-size: 1.1em;
-                padding: .25em;
+                padding: 0.25em;
             }
         }
     }

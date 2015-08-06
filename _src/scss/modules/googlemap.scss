@@ -1,11 +1,11 @@
 .contact-wrap {
-    .flexbox();
-    .flexdir(column);
-    @media (min-width: @gridWidth) {
-        .flexdir(row);
+    @include flexbox();
+    @include flexdir(column);
+    @media (min-width: $gridWidth) {
+        @include flexdir(row);
     }
     > div {
-        .flex(1 0 auto);
+        @include flex(1 0 auto);
     }
 }
 
