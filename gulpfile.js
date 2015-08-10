@@ -9,15 +9,18 @@ var gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'),
     cache = require('gulp-cache'),
     pngquant = require('imagemin-pngquant'),
-    less = require('gulp-less'),
     minifyCSS = require('gulp-minify-css'),
     combiner = require('stream-combiner2'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    sass = require('gulp-sass'),
+    gutil = require('gulp-util'),
+    sourcemaps = require('gulp-sourcemaps'),
+    plumber = require('gulp-plumber');
 
 var paths = {
     styles: {
-        master: '_src/less/main.less',
-        watch: ['_src/less/**/*.less', '_src/less/main.less'],
+        master: '_src/scss/main.scss',
+        watch: ['_src/scss/**/*.scss', '_src/less/main.scss'],
         dist: 'dist/css'
     },
     scripts: {
@@ -41,7 +44,7 @@ gulp.task('vendor-scripts', function () {
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(gulp.dest(paths.scripts.dist))
-        .pipe(notify({ message: 'Vendor scripts task complete' }));
+        .pipe(notify('Vendor scripts task complete'));
 });
 
 gulp.task('ng-scripts', function () {
@@ -60,7 +63,6 @@ gulp.task('scripts', function () {
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(gulp.dest(paths.scripts.dist))
-        .pipe(livereload())
         .pipe(notify({ message: 'Scripts task complete' }));
 });
 
@@ -76,24 +78,37 @@ gulp.task('images', function () {
         .pipe(gulp.dest(paths.images.dist));
 });
 
-gulp.task('less', function () {
+gulp.task('sass', function () {
     'use strict';
-    var combined = combiner.obj([
-        gulp.src(paths.styles.master),
-        less(),
-        minifyCSS(),
-        gulp.dest(paths.styles.dist),
-        notify({ message: 'LESS compiled & minified, sir!'}),
-        livereload()
-    ]);
-    combined.on('error', console.error.bind(console));
+    gulp.src(paths.styles.master)
+        .pipe(sourcemaps.init())
+        .pipe(plumber())
+        .pipe(sass())
+        .on('error', function (err) {
+            gutil.log(err);
+            this.emit('end');
+        })
+        .pipe(sourcemaps.write('../sourcemaps', {
+            includeContent: false // Otherwise all the CSS would be included
+        }))
+        .pipe(gulp.dest(paths.styles.dist))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(minifyCSS({keepBreaks: false}))
+        .pipe(gulp.dest(paths.styles.dist))
+        .on('error', gutil.log)
+        .pipe(notify({ message: 'SCSS compiled & minified, sir!'}));
 });
 
 gulp.task('watch', function () {
     'use strict';
-    livereload.listen();
     gulp.watch(paths.scripts.watch, ['scripts']);
-    gulp.watch(paths.styles.watch, ['less']);
+    gulp.watch(paths.styles.watch, ['sass']);
+    livereload.listen();
+    gulp.watch(paths.styles.dist + '/main.css', function (event) {
+        // only reload the resource that has changed, in this case, our master.css file. this allows livereload without a page refresh
+        console.log(event);
+        livereload.changed(event.path);
+    });
 });
 
 gulp.task('clean', function (cb) {
@@ -103,5 +118,5 @@ gulp.task('clean', function (cb) {
 
 gulp.task('default', ['clean'], function () {
     'use strict';
-    gulp.start('vendor-scripts', 'ng-scripts', 'scripts', 'images', 'less');
+    gulp.start('vendor-scripts', 'ng-scripts', 'scripts', 'images', 'sass');
 });

@@ -1,0 +1,67 @@
+<p><a href="https://vimeo.com/28709243">Parallax-Effekte</a> auf Websites sind ein <a href="http://t3n.de/news/parallax-scrolling-beispiele-423046/">anhaltender Trend</a> und ein toller Eyecatcher. Daher sollte die Option eines Parallax-Effekts auch in die unlängst durch mich entwickelten Inhaltselemente für das Open Source CMS <a href="http://www.contao.org">Contao</a> einfließen.</p>
+<h2 id="was-ist-ein-parallax-effekt">Was ist ein Parallax-Effekt?</h2>
+<p>Die sogenannte Bewegungsparallaxe entsteht, wenn sich zwei hintereinander positionierte Objekte relativ zum Betrachter unterschiedlich schnell bewegen und so der räumliche Eindruck entsteht, dass eines der Objekte weiter vom Betrachter entfernt ist.</p>
+<h2 id="wie-kann-man-diesen-effekt-auf-einer-webseite-einsetzen">Wie kann man diesen Effekt auf einer Webseite einsetzen?</h2>
+<p>Im Kopfbereich von Websites sind aktuell häufig sogenannte "featured images", also optisch ansprechende Bilder, zu finden. Wenn diese zusätzlich mit einer Bewegungsparallaxe versehen werden, so wird die Website optisch noch abwechslungsreicher.</p>
+<p>Darüber hinaus kann die Bewegungsparallaxe überall - sparsam und subtil - als Auflockerung verwendet werden.</p>
+<h2 id="technische-betrachtung">Technische Betrachtung</h2>
+<p>Um einen Parallax-Effekt für Hintergrundgrafiken zu implementieren, gibt es nun verschiedene Ansätze:</p>
+<ol>
+<li>Das Element absolut positionieren und das <code>top</code> Attribut in Abhängigkeit des Scrolling verändern</li>
+<li>Die Hintergrundposition des Elements in Abhängigkeit des Scrollings verändern</li>
+</ol>
+<p>Bei diesen beiden Ansätzen entstehen Performance-Probleme in Form von Ruckeln, also einer <a href="http://nilsbutenschoen.de/#/blog/posts/60-fps-and-the-web">Bildrate unter 60 Bildern pro Sekunde (fps)</a>, weil die CPU in Verbindung mit dem Browser die Berechnung zur Darstellung der Webseite übernimmt, diese ist aufgrund ihrer Architektur aber nicht auf das Berechnen von Bildschirmgrafik optimiert.</p>
+<h3 id="die-losung-gpu-berechnung">Die Lösung: GPU-Berechnung</h3>
+<p>Anstatt nun die eher schlecht geeignete CPU des Endgeräts für die Berechnung heranzuziehen, sollten die Rechenoperationen eher mit Hilfe des Grafikprozessors (GPU) durchgeführt werden, dieser ist durch seine Architektur zur notwendigen Berechnung von Fließkommazahlen bestens geeignet.</p>
+<p>Und JavaScript bringt uns prinzipiell schon eine Möglichkeit zur GPU-Berechnung - im Idealfall bei 60 fps - frei Haus: <code>requestAnimationFrame</code>. Wie der Name der Funktion schon verrät, wird quasi ein Animationsbild pro Durchgang angefragt (request), wodurch die Darstellung der 60 Bilder / Sekunden mit der Animation synchron ablaufen sollte.</p>
+<p>Wird das in Verbindung mit <code>transform3d</code> benutzt, so erfolgt die Berechnung des Parallax-Effekt unter Zuhilfenahme der GPU, wodurch ein flüssiger Scroll-Eindruck erzeugt werden kann.</p>
+<p>Hier ein sehr einfaches Pseudo-Beispiel:</p>
+<pre><code>...
+&lt;div class="parallax-wrap"&gt;
+    &lt;img src="parallax.jpg" class="parallax-image"&gt;
+&lt;/div&gt;
+...
+</code></pre>
+<p>Und in (S)CSS:</p>
+<pre><code>.parallax-wrap {
+    min-height: 400px;
+    position: relative;
+    .parallax-image {
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: translate(-50%,-50%);
+    }
+}
+</code></pre>
+<p>Damit sollte zunächst das Gröbste erledigt sein.
+Nun zum JavaScript:</p>
+<pre><code>// Use Array forEach for object collections
+var forEach = Array.prototype.forEach,
+    scrollTop,
+    parallaxImages = document.querySelectorAll('.parallax-images');
+
+// Cross browser requestAnimationFrame
+window.requestAnimationFrame = window.requestAnimationFrame
+    || window.mozRequestAnimationFrame
+    || window.webkitRequestAnimationFrame
+    || window.msRequestAnimationFrame
+    || function (f) {
+        setTimeout(f, 1000 / 60);
+};
+
+// Parallax scrolling function
+function parallax() {
+    forEach.call(parallaxImages, function (image) {
+        image.style.transform3d = '(0,' + (scrollTop * 0.5) + ',0)';
+    }
+});
+
+// Scroll handling for navbar
+window.addEventListener('scroll', function () { // on page scroll
+    scrollTop = window.pageYOffset;
+    requestAnimationFrame(parallax);
+}, false);
+</code></pre>
+<p>Idealerweise ist natürlich noch zu überprüfen, ob sich das Element, dessen Position sich verändert auch im Viewport - also für den Benutzer zu sehen - ist, um alternativ gar nicht erst (Neu)Berechnungen durchführen zu müssen.</p>
+<p>Viel Spaß beim Testen!</p>
