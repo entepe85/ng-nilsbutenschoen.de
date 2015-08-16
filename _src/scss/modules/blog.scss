@@ -79,4 +79,10 @@
             margin-top: 0;
         }
     }
+    pre {
+        background: $blue;
+        border-radius: 5px;
+        color: $clouds;
+        padding: 0.5em;
+    }
 }

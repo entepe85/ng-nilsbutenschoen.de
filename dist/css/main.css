@@ -500,6 +500,12 @@ footer {
 .post > .row h1 {
   margin-top: 0; }
 
+.post pre {
+  background: #2C3E50;
+  border-radius: 5px;
+  color: #ECF0F1;
+  padding: 0.5em; }
+
 .vita .label-success {
   background-color: #3498db;
   display: inline-block;
