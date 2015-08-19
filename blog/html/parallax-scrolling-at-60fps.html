@@ -40,7 +40,7 @@ Nun zum JavaScript:</p>
 <pre><code>// Use Array forEach for object collections
 var forEach = Array.prototype.forEach,
     scrollTop,
-    parallaxImages = document.querySelectorAll('.parallax-images');
+    parallaxImages = document.querySelectorAll('.parallax-image');
 
 // Cross browser requestAnimationFrame
 window.requestAnimationFrame = window.requestAnimationFrame
@@ -54,7 +54,7 @@ window.requestAnimationFrame = window.requestAnimationFrame
 // Parallax scrolling function
 function parallax() {
     forEach.call(parallaxImages, function (image) {
-        image.style.transform3d = '(0,' + (scrollTop * 0.5) + ',0)';
+        image.style.transform = "translate3d(0," + (scrollTop * 0.5) + ",0)";
     }
 });
 
