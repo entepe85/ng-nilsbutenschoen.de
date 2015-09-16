@@ -15,7 +15,8 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     gutil = require('gulp-util'),
     sourcemaps = require('gulp-sourcemaps'),
-    plumber = require('gulp-plumber');
+    plumber = require('gulp-plumber'),
+    browserSync = require('browser-sync');
 
 var paths = {
     styles: {
@@ -33,7 +34,8 @@ var paths = {
     images: {
         src: ['_src/img/*', '_src/assets/img/*'],
         dist: 'dist/images'
-    }
+    },
+    vhost: 'nilsbutenschoen.dev'
 };
 
 gulp.task('vendor-scripts', function () {
@@ -92,6 +94,7 @@ gulp.task('sass', function () {
             includeContent: false // Otherwise all the CSS would be included
         }))
         .pipe(gulp.dest(paths.styles.dist))
+        .pipe(browserSync.stream({match: "**/*.css"}))
         .pipe(rename({suffix: '.min'}))
         .pipe(minifyCSS({keepBreaks: false}))
         .pipe(gulp.dest(paths.styles.dist))
@@ -99,16 +102,17 @@ gulp.task('sass', function () {
         .pipe(notify({ message: 'SCSS compiled & minified, sir!'}));
 });
 
-gulp.task('watch', function () {
+gulp.task('browsersync', function () {
+    'use strict';
+    browserSync({
+        proxy: paths.vhost
+    });
+});
+
+gulp.task('watch', ['browsersync'], function () {
     'use strict';
     gulp.watch(paths.scripts.watch, ['scripts']);
     gulp.watch(paths.styles.watch, ['sass']);
-    livereload.listen();
-    gulp.watch(paths.styles.dist + '/main.css', function (event) {
-        // only reload the resource that has changed, in this case, our master.css file. this allows livereload without a page refresh
-        console.log(event);
-        livereload.changed(event.path);
-    });
 });
 
 gulp.task('clean', function (cb) {

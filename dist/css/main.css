@@ -645,15 +645,15 @@ blockquote {
       content: "— "; }
 
 #loading-bar .bar {
-  background: #2980b9;
+  background: #F39C12;
   height: 5px; }
 
 #loading-bar .peg {
-  box-shadow: #2980b9 1px 0 6px 1px;
-  -webkit-box-shadow: #2980b9 1px 0 6px 1px;
-  -moz-box-shadow: #2980b9 1px 0 6px 1px;
-  -ms-box-shadow: #2980b9 1px 0 6px 1px;
-  -o-box-shadow: #2980b9 1px 0 6px 1px; }
+  box-shadow: #F39C12 1px 0 6px 1px;
+  -webkit-box-shadow: #F39C12 1px 0 6px 1px;
+  -moz-box-shadow: #F39C12 1px 0 6px 1px;
+  -ms-box-shadow: #F39C12 1px 0 6px 1px;
+  -o-box-shadow: #F39C12 1px 0 6px 1px; }
 
 @media (min-width: 960px) {
   #wrapper {

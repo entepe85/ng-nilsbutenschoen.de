@@ -22,6 +22,7 @@
   },
   "repository": "git@github.com:entepe85/ng-nilsbutenschoen.de.git",
   "dependencies": {
+    "browser-sync": "^2.9.3",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.4",
     "gulp-sourcemaps": "^1.5.2",
